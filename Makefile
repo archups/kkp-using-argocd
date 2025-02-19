@@ -1,11 +1,10 @@
-K1_VERSION=1.8.3
+K1_VERSION=1.9.0
 # To upgrade KKP, update the version of kkp here.
-#KKP_VERSION=v2.25.11
-KKP_VERSION=v2.26.2
+KKP_VERSION=v2.27.0
 INSTALL_DIR=./binaries/kubermatic/releases/${KKP_VERSION}
 KUBEONE_INSTALL_DIR=./binaries/kubeone/releases/${K1_VERSION}
-MASTER_KUBECONFIG=./kubeone-install/dev-master/argodemo-dev-master-kubeconfig
-SEED_KUBECONFIG=./kubeone-install/dev-seed/argodemo-dev-seed-kubeconfig
+MASTER_KUBECONFIG=/mnt/d/Kubermatic/Sartorius/code/prep-kkp-setup/2.27/kubeconfig-gitops-via-argocd
+SEED_KUBECONFIG=/mnt/d/Kubermatic/Sartorius/code/prep-kkp-setup/2.27/kubeconfig-gitops-via-argocd
 
 #use e.g. for MAC OS: BIN_ARCH=darwin-amd64 make download-kkp-release
 BIN_ARCH ?= linux-amd64
@@ -54,7 +53,8 @@ create-long-lived-master-seed-kubeconfig:
 
 # DEV Master
 deploy-argo-dev-master:
-	KUBECONFIG=${MASTER_KUBECONFIG} helm upgrade --install argocd --version 5.36.10 --namespace argocd --create-namespace argo/argo-cd -f values-argocd.yaml --set 'server.ingress.hosts[0]=argocd.argodemo.lab.kubermatic.io' --set 'server.ingress.tls[0].hosts[0]=argocd.argodemo.lab.kubermatic.io'
+	helm repo add argo https://argoproj.github.io/argo-helm
+	KUBECONFIG=${MASTER_KUBECONFIG} helm upgrade --install argocd --version 7.8.2 --namespace argocd --create-namespace argo/argo-cd -f values-argocd.yaml --set 'global.domain=argocd.arc-demo.lab.kubermatic.io'
 
 deploy-argo-apps-dev-master:
 	helm repo add dharapvj https://dharapvj.github.io/helm-charts/
@@ -67,7 +67,7 @@ push-git-tag-dev:
 
 # DEV India Seed
 deploy-argo-dev-seed:
-	KUBECONFIG=${SEED_KUBECONFIG} helm upgrade --install argocd --version 5.36.10 --namespace argocd --create-namespace argo/argo-cd -f values-argocd.yaml --set 'server.ingress.hosts[0]=argocd.india.argodemo.lab.kubermatic.io' --set 'server.ingress.tls[0].hosts[0]=argocd.india.argodemo.lab.kubermatic.io'
+	KUBECONFIG=${SEED_KUBECONFIG} helm upgrade --install argocd --version 5.36.10 --namespace argocd --create-namespace argo/argo-cd -f values-argocd.yaml --set 'server.ingress.hosts[0]=argocd.india.arc-demo.lab.kubermatic.io' --set 'server.ingress.tls[0].hosts[0]=argocd.india.arc-demo.lab.kubermatic.io'
 
 deploy-argo-apps-dev-seed:
 	helm repo add dharapvj https://dharapvj.github.io/helm-charts/

@@ -28,7 +28,7 @@ spec:
     # a disabled Ingress, this must always be a valid hostname.
     # this domain must match what you configured as dex.ingress.host
     # in the values.yaml
-    domain: argodemo.lab.kubermatic.io
+    domain: arc-demo.lab.kubermatic.io
     certificateIssuer:
       # APIGroup is the group for the resource being referenced.
       # If APIGroup is not specified, the specified Kind must be in the core API group.
@@ -54,7 +54,7 @@ spec:
     issuerClientID: kubermaticIssuer
     # When using letsencrypt-prod replace with "false"
     skipTokenIssuerTLSVerify: true
-    tokenIssuer: https://argodemo.lab.kubermatic.io/dex
+    tokenIssuer: https://arc-demo.lab.kubermatic.io/dex
 
     # This must match the secret configured for the kubermaticIssuer client from
     # the dex clients in values.yaml.

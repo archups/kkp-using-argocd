@@ -13,35 +13,35 @@ spec:
     - icon: ""
       label: Grafana (mgmt)
       location: default
-      url: https://grafana.argodemo.lab.kubermatic.io
+      url: https://grafana.arc-demo.lab.kubermatic.io
     - icon: ""
       label: Loki (mgmt)
       location: default
-      url: https://grafana.argodemo.lab.kubermatic.io/explore
+      url: https://grafana.arc-demo.lab.kubermatic.io/explore
     - icon: ""
       label: Prometheus (mgmt)
       location: default
-      url: https://prometheus.argodemo.lab.kubermatic.io
+      url: https://prometheus.arc-demo.lab.kubermatic.io
     - icon: ""
       label: Alertmanager (mgmt)
       location: default
-      url: https://alertmanager.argodemo.lab.kubermatic.io
+      url: https://alertmanager.arc-demo.lab.kubermatic.io
     - icon: ""
       label: Grafana (india)
       location: default
-      url: https://grafana.india.argodemo.lab.kubermatic.io
+      url: https://grafana.india.arc-demo.lab.kubermatic.io
     - icon: ""
       label: Loki (india)
       location: default
-      url: https://grafana.india.argodemo.lab.kubermatic.io/explore
+      url: https://grafana.india.arc-demo.lab.kubermatic.io/explore
     - icon: ""
       label: Prometheus (india)
       location: default
-      url: https://prometheus.india.argodemo.lab.kubermatic.io
+      url: https://prometheus.india.arc-demo.lab.kubermatic.io
     - icon: ""
       label: Alertmanager (india)
       location: default
-      url: https://alertmanager.india.argodemo.lab.kubermatic.io
+      url: https://alertmanager.india.arc-demo.lab.kubermatic.io
     - icon: ""
       label: Documentation
       location: default
